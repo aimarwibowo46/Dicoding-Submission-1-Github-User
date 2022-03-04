@@ -20,8 +20,8 @@ class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val(name, company, photo) = listUser[position]
-        holder.imgPhoto.setImageResource(photo.toInt())
+        val(username, name, location, repository, company, followers, following, photo) = listUser[position]
+        holder.imgPhoto.setImageResource(photo)
         holder.tvName.text = name
         holder.tvCompany.text = company
     }
