@@ -1,5 +1,6 @@
 package com.example.submission1_githubuser
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,16 +22,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val listUsers: ArrayList<User>
+        @SuppressLint("Recycle")
         get() {
-            val dataName = resources.getStringArray(R.array.name)
-            val dataCompany = resources.getStringArray(R.array.username)
-            val dataPhoto = resources.obtainTypedArray(R.array.photo)
-            //
             val dataUsername = resources.getStringArray(R.array.username)
+            val dataName = resources.getStringArray(R.array.name)
             val dataLocation = resources.getStringArray(R.array.location)
             val dataRepository = resources.getIntArray(R.array.repository)
+            val dataCompany = resources.getStringArray(R.array.company)
             val dataFollowers = resources.getIntArray(R.array.followers)
             val dataFollowing = resources.getIntArray(R.array.following)
+            val dataPhoto = resources.obtainTypedArray(R.array.photo)
 
             val listUser = ArrayList<User>()
             for(i in dataName.indices) {
@@ -53,4 +54,5 @@ class MainActivity : AppCompatActivity() {
         val listUserAdapter = ListUserAdapter(list)
         rvUsers.adapter = listUserAdapter
     }
+
 }

@@ -4,6 +4,14 @@
     <!--  Other string resources -->
     <string name="users_name">Name</string>
     <string name="users_company">Company</string>
+    <string name="detail_name">Name</string>
+    <string name="detail_username">Username</string>
+    <string name="detail_followers">Followers</string>
+    <string name="detail_following">Following</string>
+    <string name="detail_company">Company</string>
+    <string name="detail_location">Location</string>
+    <string name="detail_repository">Repository</string>
+    <string name="detail_photo">Photo</string>
 
     <string-array name="username">
         <item>JakeWharton</item>

@@ -1,5 +1,7 @@
 package com.example.submission1_githubuser
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_user_photo)
         var tvName: TextView = itemView.findViewById(R.id.tv_user_name)
@@ -20,10 +23,18 @@ class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val(username, name, location, repository, company, followers, following, photo) = listUser[position]
+        val(_, name, _, _, company, _, _, photo) = listUser[position]
+        Log.d("ListUserAdapter", listUser[position].toString())
+
         holder.imgPhoto.setImageResource(photo)
         holder.tvName.text = name
         holder.tvCompany.text = company
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailUser::class.java)
+            intent.putExtra(DetailUser.DETAIL_USER, listUser[position])
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
